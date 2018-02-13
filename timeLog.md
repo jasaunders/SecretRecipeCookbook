@@ -1,6 +1,5 @@
-# Joanne Saunders Time Log
-
-This file will track the Secret Recipe application for Enterprise Java Class. 
+##Joanne Saunders Time Log
+ 
 
 ### 
 Week One 2018-01-16 to 2018-01-21
