@@ -50,7 +50,7 @@ more detail.
 - [ ] Weekly journal entry
 
 ### Week 7: 2/26/2018
-- [ ] Project Checkpoint 2 due
+- [ ] Project Checkpoint 2 due: database designed and created, at least one DA imlementd with hibernate, DAO tested, Log4J implemented, class design and all diagrams created.
 - [ ] Add user login  
 - [ ] Add user registration
 - [ ] Security Authentication
@@ -70,7 +70,7 @@ more detail.
 ### Spring Break: 3/12/2018
 
 ### Week 9: 3/19/2018
-- [ ] Project Checkpoint 3 due
+- [ ] Project Checkpoint 3 due: Deployed to AWS, at least one JSP that displays data from the database is implemented.
 - [ ] Work Week. Catch up any past due items.
 - [ ] write scriptlet to populate the free recipes page
 - [ ] Code review
