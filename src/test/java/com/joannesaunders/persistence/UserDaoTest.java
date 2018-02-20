@@ -75,7 +75,7 @@ class UserDaoTest {
     }
 
     /**
-     * Verify successful insert of a user
+     * Verify successful insert of a user with category
      */
     @Test
     void insertWithCategorySuccess() {
@@ -107,12 +107,22 @@ class UserDaoTest {
         assertNull(dao.getById(3));
     }
 
+    @Test
+    void updateSuccess() {
+        String newLastName = "Pollick";
+        User userToUpdate = dao.getById(3);
+        userToUpdate.setLastName(newLastName);
+        dao.saveOrUpdate(userToUpdate);
+        User retrievedUser = dao.getById(3);
+        assertEquals(newLastName, retrievedUser.getLastName());
+    }
+
     /**
      * Verify successful get by property (equal match)
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "Hanson");
+        List<User> users = dao.getByPropertyEqual("lastName", "Hanson");
         assertEquals(1, users.size());
         assertEquals(3, users.get(0).getId());
     }

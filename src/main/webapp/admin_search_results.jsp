@@ -20,6 +20,12 @@
                 <td>${user.lastName}</td>
                 <td>${user.id}</td>
                 <td>${user.userName}</td>
+                <td>
+                    <c:forEach var = "category" items = "${user.categories}">
+                        ${category.id} ${category.description}<br/>
+                    </c:forEach>
+                </td>
+
             </tr>
 
         </c:forEach>
