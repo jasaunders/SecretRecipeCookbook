@@ -915,46 +915,90 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="231" parent="8" name="user">
+    <table id="231" parent="8" name="category">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="232" parent="231" name="id">
+    <table id="232" parent="8" name="user">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="233" parent="231" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="231" name="firstName">
+    <column id="234" parent="231" name="description">
       <Position>2</Position>
-      <DataType>varchar(25)|0</DataType>
+      <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="231" name="lastName">
+    <column id="235" parent="231" name="user_id">
       <Position>3</Position>
-      <DataType>varchar(25)|0</DataType>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="231" name="userName">
-      <Position>4</Position>
-      <DataType>varchar(50)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="236" parent="231" name="password">
-      <Position>5</Position>
-      <DataType>varchar(30)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="237" parent="231" name="users_userName_uindex">
-      <ColNames>userName</ColNames>
+    <index id="236" parent="231" name="category_id_uindex">
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
+    </index>
+    <index id="237" parent="231" name="category_user_id_fk">
+      <ColNames>user_id</ColNames>
     </index>
     <key id="238" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="239" parent="231" name="users_userName_uindex">
+    <key id="239" parent="231" name="category_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="240" parent="231" name="category_user_id_fk">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>test_cookbook</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="241" parent="232" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="232" name="firstName">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="232" name="lastName">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="232" name="userName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="232" name="password">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="246" parent="232" name="users_userName_uindex">
+      <ColNames>userName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="247" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="248" parent="232" name="users_userName_uindex">
       <ColNames>userName</ColNames>
       <UnderlyingIndexName>users_userName_uindex</UnderlyingIndexName>
     </key>

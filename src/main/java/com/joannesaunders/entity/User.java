@@ -6,6 +6,8 @@ import javax.ejb.Local;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A class to represent a user.
@@ -24,6 +26,9 @@ public class User {
     private String lastName;
     private String userName;
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Category> categories = new HashSet<>();
 
 
     /**
@@ -135,6 +140,19 @@ public class User {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Gets categories.
+     *
+     * @return the categories
+     */
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     @Override
