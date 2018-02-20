@@ -1,6 +1,7 @@
 package com.joannesaunders.persistence;
 
 import com.joannesaunders.entity.Category;
+import com.joannesaunders.persistence.SessionFactoryProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -19,38 +20,38 @@ public class CategoryDao {
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
     /**
-     * Gets all categorys.
+     * Gets all categories.
      *
-     * @return all categorys
+     * @return all categories
      */
-    public List<Category> getAllCategorys() {
+    public List<Category> getAllCategories() {
 
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Category> query = builder.createQuery(Category.class);
         Root<Category> root = query.from(Category.class);
-        List<Category> categorys = session.createQuery(query).getResultList();
+        List<Category> categories = session.createQuery(query).getResultList();
         session.close();
-        return categorys;
+        return categories;
     }
 
     /**
-     * Gets categorys based on search of last name.
+     * Gets categories based on search of description.
      *
-     * @return the all categorys
+     * @return the all categories
      */
-    public List<Category> getCategorysByLastName(String lastName) {
+    public List<Category> getCategoriesByDescription(String description) {
 
-        logger.debug("Searching for category: {}", lastName);
+        logger.debug("Searching for category: {}", description);
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Category> query = builder.createQuery(Category.class);
         Root<Category> root = query.from(Category.class);
-        Expression<String> propertyPath = root.get("lastName");
-        query.where(builder.like(propertyPath, "%" + lastName + "%"));
-        List<Category> categorys = session.createQuery(query).getResultList();
+        Expression<String> propertyPath = root.get("description");
+        query.where(builder.like(propertyPath, "%" + description + "%"));
+        List<Category> categories = session.createQuery(query).getResultList();
         session.close();
-        return categorys;
+        return categories;
 
 
     }
@@ -126,7 +127,7 @@ public class CategoryDao {
 
     /**
      * Get category by property (like)
-     * sample usage: getByPropertyLike("lastname", "C")
+     * sample usage: getByPropertyLike("description", "C")
      */
     public List<Category> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();

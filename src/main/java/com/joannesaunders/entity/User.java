@@ -155,6 +155,26 @@ public class User {
         this.categories = categories;
     }
 
+    /**
+     * Add category.
+     *
+     * @param category the category
+     */
+    public void addCategory(Category category) {
+        categories.add(category);
+        category.setUser(this);
+    }
+
+    /**
+     * Remove category.
+     *
+     * @param category the category
+     */
+    public void removeCategory(Category category) {
+        categories.remove(category);
+        category.setUser(null);
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -165,4 +185,6 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+
 }

@@ -75,6 +75,30 @@ class UserDaoTest {
     }
 
     /**
+     * Verify successful insert of a user
+     */
+    @Test
+    void insertWithCategorySuccess() {
+
+        User newUser = new User("Fred", "Flintstone", "fflintstone", "secret123$");
+
+        String categoryDescription = "Salad";
+        Category category = new Category(categoryDescription, newUser);
+
+        newUser.addCategory(category);
+
+        int id = dao.insert(newUser);
+
+        assertNotEquals(0,id);
+        User insertedUser = dao.getById(id);
+        assertEquals("Fred", insertedUser.getFirstName());
+        assertEquals("Flintstone", insertedUser.getLastName());
+        assertEquals("fflintstone", insertedUser.getUserName());
+        assertEquals("secret123$", insertedUser.getPassword());
+        assertEquals(1, insertedUser.getCategories().size());
+    }
+
+    /**
      * Verify successful delete of user
      */
     @Test
