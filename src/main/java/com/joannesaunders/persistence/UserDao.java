@@ -62,7 +62,7 @@ public class UserDao {
      */
     public User getById(int id){
         Session session = sessionFactory.openSession();
-        User user = session.get(User.class, id);
+        User user = session.get(User.class, id); // gets the whole user object
         session.close();
         return user;
     }

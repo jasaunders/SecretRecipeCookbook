@@ -40,8 +40,8 @@ class UserDaoTest {
      */
     @Test
     void getUsersByLastName() {
-        List<User> users = dao.getUsersByLastName("s");
-        assertEquals(3, users.size());
+        List<User> users = dao.getUsersByLastName("P");
+        assertEquals(2, users.size());
     }
 
     /**
@@ -64,14 +64,14 @@ class UserDaoTest {
     @Test
     void insertSuccess() {
 
-        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"));
+        User newUser = new User("Fred", "Flintstone", "fflintstone", "secret123$");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = dao.getById(id);
         assertEquals("Fred", insertedUser.getFirstName());
-        // Could continue comparing all values, but
-        // it may make sense to use .equals()
-        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertEquals("Flintstone", insertedUser.getLastName());
+        assertEquals("fflintstone", insertedUser.getUserName());
+        assertEquals("secret123$", insertedUser.getPassword());
     }
 
     /**
@@ -84,20 +84,11 @@ class UserDaoTest {
     }
 
     /**
-     * Verify successful retrieval of all users
-     */
-    @Test
-    void getAllSuccess() {
-        List<User> users = dao.getAll();
-        assertEquals(6, users.size());
-    }
-
-    /**
      * Verify successful get by property (equal match)
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "Curry");
+        List<User> users = dao.getByPropertyLike("lastName", "Hanson");
         assertEquals(1, users.size());
         assertEquals(3, users.get(0).getId());
     }
@@ -107,7 +98,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "c");
-        assertEquals(3, users.size());
+        List<User> users = dao.getByPropertyLike("lastName", "l");
+        assertEquals(2, users.size());
     }
 }
