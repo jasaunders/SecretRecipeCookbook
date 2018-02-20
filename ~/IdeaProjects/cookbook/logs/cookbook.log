@@ -1,0 +1,5 @@
+[DEBUG] 2018-02-19 21:15:15.350 [main] UserDao - Searching for user with lastName = Hanson
+[DEBUG] 2018-02-19 21:15:15.365 [main] UserDao - Searching for user with lastName = l
+[DEBUG] 2018-02-19 21:19:42.430 [main] UserDao - Searching for user: P
+[DEBUG] 2018-02-19 21:19:42.789 [main] UserDao - Searching for user with lastName = Hanson
+[DEBUG] 2018-02-19 21:19:42.802 [main] UserDao - Searching for user with lastName = l

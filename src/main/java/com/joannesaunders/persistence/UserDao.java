@@ -42,6 +42,7 @@ public class UserDao {
      */
     public List<User> getUsersByLastName(String lastName) {
 
+        logger.debug("Searching for user: {}", lastName);
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);
