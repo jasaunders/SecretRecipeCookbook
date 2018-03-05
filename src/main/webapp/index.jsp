@@ -5,16 +5,9 @@
 
 
 <div class="container">
-    <h2>Administrator User Display Verify new content is delivered to AWS deployment</h2>
+    <h2>Administrator User Display</h2>
     <h3 class="error">${searchError}</h3>
-    <form method="GET" action="searchUser" class="form">
-
-        <label for="searchTerm">Search on Last Name</label><br/>
-        <input type="text" class="form-control" name="searchTerm" id="searchTerm"/>
-        <br/>
-        <button type="submit" class="btn-btn-primary" name="submit" value="Search">Search by Last Name</button>
-        <button type="submit" class="btn-btn-primary" name="submit" value="GetAllUsers">Get All Users</button>
-    </form>
+ <a href="search.jsp">Admins click to search for users.</a>
 </div>
 
 </body>

@@ -14,16 +14,16 @@ public class Role {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id",
+    @JoinColumn(name = "userId",
             foreignKey = @ForeignKey(name = "role_user_user_id_fk")
     )
     private User user;
 
-    @Column(name="user_name")
+    @Column(name="userName")
     private String userName;
 
 
-    @Column(name="role_name")
+    @Column(name="roleName")
     private String roleName;
 
     public Role() {

@@ -34,7 +34,7 @@ class CategoryDaoTest {
     @Test
     void getAllCategoriesSuccess() {
         List<Category> categories = dao.getAllCategories();
-        assertEquals(4, categories.size());
+        assertEquals(5, categories.size());
     }
 
     /**
@@ -42,9 +42,9 @@ class CategoryDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        Category category = dao.getById(1);
+        Category category = dao.getById(3);
         assertNotNull(category);
-        assertEquals(1, category.getId());
+        assertEquals(3, category.getId());
         assertEquals("Salad", category.getDescription());
     }
 
@@ -81,11 +81,11 @@ class CategoryDaoTest {
      */
     @Test
     void updateSuccess() {
-        String description = "Candy";
-        Category categoryToUpdate = dao.getById(2);
+        String description = "Meat";
+        Category categoryToUpdate = dao.getById(3);
         categoryToUpdate.setDescription(description);
         dao.saveOrUpdate(categoryToUpdate);
-        Category retrievedCategory = dao.getById(2);
+        Category retrievedCategory = dao.getById(3);
         assertEquals(description, retrievedCategory.getDescription());
 
     }
@@ -97,7 +97,7 @@ class CategoryDaoTest {
     void getByPropertyEqualSuccess() {
         List<Category> categories = dao.getByPropertyEqual("description", "Soup");
         assertEquals(1, categories.size());
-        assertEquals(2, categories.get(0).getId());
+        assertEquals(4, categories.get(0).getId());
     }
 
     /**

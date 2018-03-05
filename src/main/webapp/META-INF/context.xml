@@ -1,0 +1,8 @@
+<Context docBase="cookbook" path="/cookbook" reloadable="true">
+    <Realm className="org.apache.catalina.realm.JDBCRealm"
+           driverName="com.mysql.jdbc.Driver"
+           connectionURL="jdbc:mysql://localhost:3306/cookbook?user=tomcat&amp;password=TigerPaw1620"
+           userTable="user" userNameCol="userName" userCredCol="password"
+           userRoleTable="role" roleNameCol="roleName" >
+    </Realm>
+</Context>
