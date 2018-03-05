@@ -1,10 +1,12 @@
 package com.joannesaunders.persistence;
 
 import com.joannesaunders.entity.*;
+import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -64,13 +66,13 @@ class UserDaoTest {
     @Test
     void insertSuccess() {
 
-        User newUser = new User("Fred", "Flintstone", "fflintstone", "secret123$");
+        User newUser = new User("Trixie", "Bucket", "tbucket", "secret123$");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = dao.getById(id);
-        assertEquals("Fred", insertedUser.getFirstName());
-        assertEquals("Flintstone", insertedUser.getLastName());
-        assertEquals("fflintstone", insertedUser.getUserName());
+        assertEquals("Trixie", insertedUser.getFirstName());
+        assertEquals("Bucket", insertedUser.getLastName());
+        assertEquals("tbucket", insertedUser.getUserName());
         assertEquals("secret123$", insertedUser.getPassword());
     }
 
@@ -80,7 +82,7 @@ class UserDaoTest {
     @Test
     void insertWithCategorySuccess() {
 
-        User newUser = new User("Fred", "Flintstone", "fflintstone", "secret123$");
+        User newUser = new User("Trixie", "Bucket", "tbucket", "secret123$");
 
         String categoryDescription = "Salad";
         Category category = new Category(categoryDescription, newUser);
@@ -91,9 +93,9 @@ class UserDaoTest {
 
         assertNotEquals(0,id);
         User insertedUser = dao.getById(id);
-        assertEquals("Fred", insertedUser.getFirstName());
-        assertEquals("Flintstone", insertedUser.getLastName());
-        assertEquals("fflintstone", insertedUser.getUserName());
+        assertEquals("Trixie", insertedUser.getFirstName());
+        assertEquals("Bucket", insertedUser.getLastName());
+        assertEquals("tbucket", insertedUser.getUserName());
         assertEquals("secret123$", insertedUser.getPassword());
         assertEquals(1, insertedUser.getCategories().size());
     }
@@ -103,17 +105,17 @@ class UserDaoTest {
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(3));
-        assertNull(dao.getById(3));
+        dao.delete(dao.getById(4));
+        assertNull(dao.getById(4));
     }
 
     @Test
     void updateSuccess() {
         String newLastName = "Pollick";
-        User userToUpdate = dao.getById(3);
+        User userToUpdate = dao.getById(4);
         userToUpdate.setLastName(newLastName);
         dao.saveOrUpdate(userToUpdate);
-        User retrievedUser = dao.getById(3);
+        User retrievedUser = dao.getById(4);
         assertEquals(newLastName, retrievedUser.getLastName());
     }
 
@@ -122,9 +124,9 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyEqual("lastName", "Hanson");
+        List<User> users = dao.getByPropertyEqual("lastName", "Diller");
         assertEquals(1, users.size());
-        assertEquals(3, users.get(0).getId());
+        assertEquals(4, users.get(0).getId());
     }
 
     /**
@@ -133,6 +135,6 @@ class UserDaoTest {
     @Test
     void getByPropertyLikeSuccess() {
         List<User> users = dao.getByPropertyLike("lastName", "l");
-        assertEquals(2, users.size());
+        assertEquals(3, users.size());
     }
 }

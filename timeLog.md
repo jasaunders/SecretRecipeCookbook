@@ -33,7 +33,6 @@
 - Week 3 Exercise: 4.5 hours
 - Week 4 Readings and videos: 4 hours
 - Indie project plan and wire frames: 10 hours
-
 ####Week Five: Feb 12 to feb 18
 - Week 4 Exercise: 3.5 hours
 - Week 5 Viedos: 1.5 hours
@@ -41,7 +40,6 @@
 - Pick professional development Project/ sign up: 2 hours
 - Week 5 exercise CRUD test cases: 4 hours
 - Week 6 readings and video: 3 hours
-
 ####Week Six: Feb 19 to Feb 25
 - Week 6 readings and video: 2 hours
 - Peer Reviews: 1.5 hours
@@ -55,11 +53,18 @@
 - Week 7 Readings and video: 2.5 hours
 - Fix time log: 1 hour
 - Application Flow Diagram: 2 hours
-####Week Eight: 
+- Week 7 Exercise:
+- Feeback on Weekly prof dev presentation:
+ 
+####Week Eight:
+####Spring Break: 
 ####Week Nine:
 ####Week Ten:
 ####Week Eleven:
 ####Week Twelve:
 ####Week Thirteen:
+####Week Fourteen:
+####Week Fifteen:
+####Week Sixteen:
 
 

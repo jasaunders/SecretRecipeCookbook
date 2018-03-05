@@ -918,87 +918,287 @@
     <table id="231" parent="2" name="category">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="232" parent="2" name="user">
+    <table id="232" parent="2" name="ingredient">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="233" parent="231" name="id">
+    <table id="233" parent="2" name="instruction">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="234" parent="2" name="recipe">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="235" parent="2" name="role">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="236" parent="2" name="unitOfMeasure">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="237" parent="2" name="user">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="238" parent="231" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="231" name="description">
+    <column id="239" parent="231" name="description">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="231" name="user_id">
+    <column id="240" parent="231" name="user_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="236" parent="231" name="category_id_uindex">
+    <index id="241" parent="231" name="category_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="237" parent="231" name="category_user_id_fk">
+    <index id="242" parent="231" name="category_user_id_fk">
       <ColNames>user_id</ColNames>
     </index>
-    <key id="238" parent="231" name="PRIMARY">
+    <key id="243" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="239" parent="231" name="category_id_uindex">
+    <key id="244" parent="231" name="category_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>category_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="240" parent="231" name="category_user_id_fk">
+    <foreign-key id="245" parent="231" name="category_user_id_fk">
       <ColNames>user_id</ColNames>
       <RefSchemaName>cookbook</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="241" parent="232" name="id">
+    <column id="246" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="232" name="firstName">
+    <column id="247" parent="232" name="description">
       <Position>2</Position>
-      <DataType>varchar(25)|0</DataType>
+      <DataType>varchar(200)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="232" name="lastName">
+    <column id="248" parent="232" name="recipeId">
       <Position>3</Position>
-      <DataType>varchar(25)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="232" name="userName">
+    <column id="249" parent="232" name="amount">
       <Position>4</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(45)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="232" name="password">
+    <column id="250" parent="232" name="unitOfMeasureId">
       <Position>5</Position>
-      <DataType>varchar(30)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="246" parent="232" name="users_userName_uindex">
-      <ColNames>userName</ColNames>
-      <Unique>1</Unique>
+    <index id="251" parent="232" name="ingredientToRecipe_idx">
+      <ColNames>recipeId</ColNames>
     </index>
-    <key id="247" parent="232" name="PRIMARY">
+    <index id="252" parent="232" name="ingredientToUnit_idx">
+      <ColNames>unitOfMeasureId</ColNames>
+    </index>
+    <key id="253" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="248" parent="232" name="users_userName_uindex">
+    <foreign-key id="254" parent="232" name="ingredientToRecipe">
+      <ColNames>recipeId</ColNames>
+      <RefSchemaName>cookbook</RefSchemaName>
+      <RefTableName>recipe</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="255" parent="232" name="ingredientToUnit">
+      <ColNames>unitOfMeasureId</ColNames>
+      <RefSchemaName>cookbook</RefSchemaName>
+      <RefTableName>unitOfMeasure</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="256" parent="233" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="233" name="description">
+      <Position>2</Position>
+      <DataType>varchar(300)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="233" name="recipeId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="259" parent="233" name="instructionToRecipe_idx">
+      <ColNames>recipeId</ColNames>
+    </index>
+    <key id="260" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="261" parent="233" name="instructionToRecipe">
+      <ColNames>recipeId</ColNames>
+      <RefSchemaName>cookbook</RefSchemaName>
+      <RefTableName>recipe</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="262" parent="234" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="263" parent="234" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="234" name="userId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="234" name="publicInd">
+      <Position>4</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="234" name="videoLink">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="267" parent="234" name="servingSize">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="234" name="numServings">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="269" parent="234" name="userId_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="270" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="271" parent="235" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="235" name="roleName">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="235" name="userName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="235" name="userId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="275" parent="235" name="userId_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="276" parent="235" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="277" parent="235" name="userIdToRole">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>cookbook</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="278" parent="236" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="279" parent="236" name="abbreviation">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="236" name="description">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="281" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="282" parent="237" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="237" name="firstName">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="284" parent="237" name="lastName">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="237" name="userName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="237" name="password">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="287" parent="237" name="users_userName_uindex">
+      <ColNames>userName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="288" parent="237" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="289" parent="237" name="users_userName_uindex">
       <ColNames>userName</ColNames>
       <UnderlyingIndexName>users_userName_uindex</UnderlyingIndexName>
     </key>

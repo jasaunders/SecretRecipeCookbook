@@ -34,7 +34,7 @@ class CategoryDaoTest {
     @Test
     void getAllCategoriesSuccess() {
         List<Category> categories = dao.getAllCategories();
-        assertEquals(3, categories.size());
+        assertEquals(4, categories.size());
     }
 
     /**
@@ -73,8 +73,8 @@ class CategoryDaoTest {
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(3));
-        assertNull(dao.getById(3));
+        dao.delete(dao.getById(4));
+        assertNull(dao.getById(4));
     }
     /**
      * Verify successful update of category
