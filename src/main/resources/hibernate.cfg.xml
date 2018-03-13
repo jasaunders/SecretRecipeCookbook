@@ -19,7 +19,19 @@
 
         <mapping class="com.joannesaunders.entity.User"/>
         <mapping class="com.joannesaunders.entity.Category"/>
+        <mapping class="com.joannesaunders.entity.Role"/>
 
     </session-factory>
 
 </hibernate-configuration>
+
+
+
+
+
+
+
+
+
+
+

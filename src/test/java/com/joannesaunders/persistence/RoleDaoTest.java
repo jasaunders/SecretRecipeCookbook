@@ -1,5 +1,6 @@
 package com.joannesaunders.persistence;
 
+import com.joannesaunders.entity.Role;
 import com.joannesaunders.entity.Category;
 import com.joannesaunders.entity.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,11 +11,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * The type Category dao test.
+ * The type Role dao test.
  */
-class CategoryDaoTest {
+class RoleDaoTest {
 
-    //CategoryDao dao;
+    //Create generic dao;
     GenericDao genericDao;
 
     /**
@@ -25,22 +26,21 @@ class CategoryDaoTest {
         com.joannesaunders.test.util.Database database = com.joannesaunders.test.util.Database.getInstance();
         database.runSQL("cleandb.sql");
 
-        //dao = new CategoryDao();
-        genericDao =  new GenericDao(Category.class);
+        genericDao =  new GenericDao(Role.class);
     }
 
     /**
-     * Gets all categories success.
-     */
+     * Gets all Roles success.
+
     @Test
-    void getAllCategoriesSuccess() {
-        List<Category> categories = genericDao.getAll();
-        assertEquals(5, categories.size());
+    void getAllRolesSuccess() {
+        List<Role> roles = genericDao.getAll();
+        assertEquals(4, roles.size());
     }
 
     /**
      * verifies a single category is returned based on the category ID sent in.
-     */
+
     @Test
     void getByIdSuccess() {
         Category category = (Category)genericDao.getById(3);
@@ -51,7 +51,7 @@ class CategoryDaoTest {
 
     /**
      * Verify successful insert of a category
-     */
+
     @Test
     void insertSuccess() {
 
@@ -71,7 +71,7 @@ class CategoryDaoTest {
 
     /**
      * Verify successful delete of category
-     */
+
     @Test
     void deleteSuccess() {
         genericDao.delete(genericDao.getById(4));
@@ -79,7 +79,7 @@ class CategoryDaoTest {
     }
     /**
      * Verify successful update of category
-     */
+
     @Test
     void updateSuccess() {
         String description = "Meat";
@@ -93,7 +93,7 @@ class CategoryDaoTest {
 
     /**
      * Verify successful get by property (equal match)
-     */
+
     @Test
     void getByPropertyEqualSuccess() {
         List<Category> categories = genericDao.getByPropertyEqual("description", "Soup");
@@ -103,10 +103,11 @@ class CategoryDaoTest {
 
     /**
      * Verify successful get by property (like match)
-     */
+
     @Test
     void getByPropertyLikeSuccess() {
         List<Category> categories = genericDao.getByPropertyLike("description", "S");
         assertEquals(2, categories.size());
     }
+    */
 }

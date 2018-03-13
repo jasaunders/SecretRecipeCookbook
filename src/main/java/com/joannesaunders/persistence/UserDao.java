@@ -70,7 +70,7 @@ public class UserDao {
 
     /**
      * update user
-     * @param user  User to be inserted or updated
+     * @param user  User to be updated
      */
     public void saveOrUpdate(User user) {
         Session session = sessionFactory.openSession();
@@ -82,7 +82,7 @@ public class UserDao {
 
     /**
      * update user
-     * @param user  User to be inserted or updated
+     * @param user  User to be inserted.
      */
     public int insert(User user) {
         int id = 0;
