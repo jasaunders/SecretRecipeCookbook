@@ -3,6 +3,7 @@ package com.joannesaunders.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * The type Category.
@@ -99,5 +100,20 @@ public class Category {
                 ", description='" + description + '\'' +
                 ", user=" + user +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id == category.id &&
+                Objects.equals(description, category.description);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, description);
     }
 }

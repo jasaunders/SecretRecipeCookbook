@@ -63,7 +63,7 @@ class CategoryDaoTest {
 
         assertNotEquals(0,id);
         Category insertedCategory = dao.getById(id);
-        assertEquals("Bread", insertedCategory.getDescription());
+        assertEquals(newCategory, insertedCategory);
         assertEquals("joanne.saunders@hansonmanor.us", insertedCategory.getUser().getUserName());
 
     }
@@ -86,7 +86,7 @@ class CategoryDaoTest {
         categoryToUpdate.setDescription(description);
         dao.saveOrUpdate(categoryToUpdate);
         Category retrievedCategory = dao.getById(3);
-        assertEquals(description, retrievedCategory.getDescription());
+        assertEquals(categoryToUpdate, retrievedCategory);
 
     }
 
