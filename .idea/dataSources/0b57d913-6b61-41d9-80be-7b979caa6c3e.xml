@@ -3409,7 +3409,7 @@ User</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="624" parent="266" name="userId">
+    <column id="624" parent="266" name="categoryId">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>

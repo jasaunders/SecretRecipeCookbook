@@ -1071,7 +1071,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="234" name="userId">
+    <column id="264" parent="234" name="categoryId">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1097,7 +1097,7 @@
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="269" parent="234" name="userId_idx">
-      <ColNames>userId</ColNames>
+      <ColNames>categoryId</ColNames>
     </index>
     <key id="270" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

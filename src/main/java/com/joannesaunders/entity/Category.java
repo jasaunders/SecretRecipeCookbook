@@ -31,8 +31,8 @@ public class Category {
     /**
      * Instantiates a new Category.
      *
-     * @param description the description
-     * @param user        the user
+     * @param description the category description
+     * @param user        the user this category belongs to
      */
     public Category(String description, User user) {
         this.user = user;
