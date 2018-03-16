@@ -6,11 +6,11 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- * The type Ingredient.
+ * The type Instruction.
  */
-@Entity(name="Ingredient")
-@Table(name="ingredient")
-public class Ingredient {
+@Entity(name = "Instruction")
+@Table(name = "instruction")
+public class Instruction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -22,24 +22,20 @@ public class Ingredient {
     @ManyToOne
     private long recipeId;
 
-    private String amount;
-
-    private long unitOfMeasureId;
-
     /**
-     * Instantiates a new Ingredient.
+     * Instantiates a new Instruction.
      */
-    public Ingredient() {
+    public Instruction() {
 
     }
 
     /**
-     * Instantiates a new Ingredient.
+     * Instantiates a new Instruction.
      *
      * @param description the description
      * @param recipeId    the recipe id
      */
-    public Ingredient(String description, long recipeId) {
+    public Instruction(String description, long recipeId) {
         this.description = description;
         this.recipeId = recipeId;
     }
@@ -64,18 +60,18 @@ public class Ingredient {
 
 
     /**
-     * Gets Ingredient description.
+     * Gets description.
      *
-     * @return the ingredient description
+     * @return the description
      */
     public String getDescription() {
     return description;
     }
 
     /**
-     * Sets the ingredient description.
+     * Sets description.
      *
-     * @param description the ingredient description
+     * @param description the description
      */
     public void setDescription(String description) {
     this.description = description;
@@ -101,51 +97,12 @@ public class Ingredient {
     }
 
 
-    /**
-     * Gets amount.
-     *
-     * @return the measure amount
-     */
-    public String getAmount() {
-    return amount;
-    }
-
-    /**
-     * Sets amount.
-     *
-     * @param amount the measure amount
-     */
-    public void setAmount(String amount) {
-    this.amount = amount;
-    }
-
-
-    /**
-     * Gets unit of measure id.
-     *
-     * @return the unit of measure id
-     */
-    public long getUnitOfMeasureId() {
-    return unitOfMeasureId;
-    }
-
-    /**
-     * Sets unit of measure id.
-     *
-     * @param unitOfMeasureId the unit of measure id
-     */
-    public void setUnitOfMeasureId(long unitOfMeasureId) {
-    this.unitOfMeasureId = unitOfMeasureId;
-    }
-
     @Override
     public String toString() {
-        return "Ingredient{" +
+        return "Instruction{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
                 ", recipeId=" + recipeId +
-                ", amount='" + amount + '\'' +
-                ", unitOfMeasureId=" + unitOfMeasureId +
                 '}';
     }
 
@@ -153,17 +110,15 @@ public class Ingredient {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ingredient that = (Ingredient) o;
+        Instruction that = (Instruction) o;
         return id == that.id &&
                 recipeId == that.recipeId &&
-                unitOfMeasureId == that.unitOfMeasureId &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(amount, that.amount);
+                Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, description, recipeId, amount, unitOfMeasureId);
+        return Objects.hash(id, description, recipeId);
     }
 }

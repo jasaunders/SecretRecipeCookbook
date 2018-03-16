@@ -111,13 +111,13 @@ DROP TABLE IF EXISTS `recipe`;
 CREATE TABLE `recipe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
+  `categoryId` int(11) DEFAULT NULL,
   `publicInd` tinyint(4) DEFAULT NULL,
   `videoLink` varchar(200) DEFAULT NULL,
   `servingSize` varchar(45) DEFAULT NULL,
   `numServings` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `userId_idx` (`userId`)
+  KEY `categoryId_idx` (`categoryId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -221,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-05 16:37:28
+-- Dump completed on 2018-03-16 15:27:26

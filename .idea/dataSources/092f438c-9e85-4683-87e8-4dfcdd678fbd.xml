@@ -1096,7 +1096,7 @@
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="269" parent="234" name="userId_idx">
+    <index id="269" parent="234" name="categoryId_idx">
       <ColNames>categoryId</ColNames>
     </index>
     <key id="270" parent="234" name="PRIMARY">
