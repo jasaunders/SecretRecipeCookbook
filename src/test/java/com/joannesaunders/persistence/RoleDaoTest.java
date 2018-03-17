@@ -31,7 +31,7 @@ class RoleDaoTest {
 
     /**
      * Gets all Roles success.
-
+     */
     @Test
     void getAllRolesSuccess() {
         List<Role> roles = genericDao.getAll();
@@ -40,18 +40,18 @@ class RoleDaoTest {
 
     /**
      * verifies a single category is returned based on the category ID sent in.
-
+     */
     @Test
     void getByIdSuccess() {
-        Category category = (Category)genericDao.getById(3);
-        assertNotNull(category);
-        assertEquals(3, category.getId());
-        assertEquals("Salad", category.getDescription());
+        Role role = (Role)genericDao.getById(3);
+        assertNotNull(role);
+        assertEquals(3, role.getId());
+        assertEquals("amber@hansonmanor.us", role.getUserName());
     }
 
     /**
      * Verify successful insert of a category
-
+     */
     @Test
     void insertSuccess() {
 
@@ -71,7 +71,7 @@ class RoleDaoTest {
 
     /**
      * Verify successful delete of category
-
+    */
     @Test
     void deleteSuccess() {
         genericDao.delete(genericDao.getById(4));
@@ -79,7 +79,7 @@ class RoleDaoTest {
     }
     /**
      * Verify successful update of category
-
+    */
     @Test
     void updateSuccess() {
         String description = "Meat";
@@ -93,7 +93,7 @@ class RoleDaoTest {
 
     /**
      * Verify successful get by property (equal match)
-
+    */
     @Test
     void getByPropertyEqualSuccess() {
         List<Category> categories = genericDao.getByPropertyEqual("description", "Soup");
@@ -103,11 +103,10 @@ class RoleDaoTest {
 
     /**
      * Verify successful get by property (like match)
-
+    */
     @Test
     void getByPropertyLikeSuccess() {
         List<Category> categories = genericDao.getByPropertyLike("description", "S");
         assertEquals(2, categories.size());
     }
-    */
 }
