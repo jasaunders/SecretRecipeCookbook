@@ -28,33 +28,33 @@
 - [X] Weekly journal entry
 ### Week 6: 2/19/2018
 - [X] Create DAO for user
-- [ ] Create DAO for category
-- [ ] Create DAO for recipe
+- [X] Create DAO for category
 - [X] Weekly journal entry
 ### Week 7: 2/26/2018
 - [X] Deploy to AWS
 - [X] Complete database design
 - [X] Create database and all tables/columns locally
 - [X] Document application flow
-- [ ] Generate Database Diagram 
-- [ ] Project Checkpoint 2 due: database designed and created, at least one DA imlementd with hibernate, DAO tested, Log4J implemented, class design and all diagrams created.
-- [ ] Add entities for remaining tables
-- [ ] Begin creating JSPs
+- [X] Generate Database Diagram 
+- [X] Project Checkpoint 2 due: database designed and created, at least one DA imlementd with hibernate, DAO tested, Log4J implemented, class design and all diagrams created.
 - [ ] Add user login  
 - [ ] Add user registration
 - [ ] Draft Administrators Page
-- [ ] Security Authentication
-- [ ] Weekly journal entry
+- [X] Security Authentication
+- [X] Weekly journal entry
 ### Week 8: 3/5/2018
+- [X] Add entities for remaining tables
+- [X] Begin creating JSPs
 - [ ] Determine possible Web Services or APIs to use
 - [ ] Modify project plan when API is determined
 - [ ] Research / Add Hibernate validator to project
-- [ ] Add in bootstrap
+- [X] Add in bootstrap
 - [ ] Set up User Profile (user home page)
 - [ ] Add edit user profile functionality
 - [ ] Integration with API *** START
 - [ ] Weekly journal entry
 ### Spring Break: 3/12/2018
+- [ ] Create Generic DAO
 - [ ] UPdate list technologies and how they will be used
 - [ ] Integration of API (TODO: how/what to do with this requirement)
 - [ ] Add Create Update Category functionality
