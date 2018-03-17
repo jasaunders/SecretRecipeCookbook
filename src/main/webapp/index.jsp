@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="head.jsp"%>
-<html>
-<body>
+<%@include file="navbar.jsp"%>
 
 
 <div class="container">
@@ -10,5 +9,4 @@
  <a href="search.jsp">Admins click to search for users.</a>
 </div>
 
-</body>
-</html>
+<%@include file="footer.jsp"%>
